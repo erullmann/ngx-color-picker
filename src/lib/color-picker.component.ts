@@ -348,6 +348,20 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.directiveInstance.colorCanceled();
   }
 
+    public onRemoveColor(event: Event): void {
+        event.stopPropagation();
+
+        this.setColorFromString(this.initialColor, true);
+
+        if (this.cpDialogDisplay === 'popup') {
+            this.directiveInstance.colorChanged(this.initialColor, true);
+
+            this.closeColorPicker();
+        }
+
+        this.directiveInstance.colorRemoved();
+    }
+
   public onFormatToggle(): void {
     this.format = (this.format + 1) % 3;
   }

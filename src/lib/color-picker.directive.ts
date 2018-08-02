@@ -52,6 +52,10 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
   @Input() cpCancelButtonText: string = 'Cancel';
   @Input() cpCancelButtonClass: string = 'cp-cancel-button-class';
 
+    @Input() cpRemoveButton: boolean = false;
+    @Input() cpRemoveButtonText: string = 'Remove';
+    @Input() cpRemoveButtonClass: string = 'cp-remove-button-class';
+
   @Input() cpPresetLabel: string = 'Preset colors';
   @Input() cpPresetColors: string[];
   @Input() cpMaxPresetColorsLength: number = 6;
@@ -76,6 +80,7 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
   @Output() colorPickerOpen = new EventEmitter<string>(true);
   @Output() colorPickerClose = new EventEmitter<string>(true);
 
+  @Output() colorPickerRemove = new EventEmitter<string>(true);
   @Output() colorPickerCancel = new EventEmitter<string>(true);
   @Output() colorPickerSelect = new EventEmitter<string>(true);
   @Output() colorPickerChange = new EventEmitter<string>(false);
@@ -166,7 +171,7 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
         this.cpOKButton, this.cpOKButtonClass, this.cpOKButtonText,
         this.cpCancelButton, this.cpCancelButtonClass, this.cpCancelButtonText,
         this.cpAddColorButton, this.cpAddColorButtonClass, this.cpAddColorButtonText,
-        this.cpRemoveColorButtonClass);
+        this.cpRemoveColorButtonClass, this.cpRemoveButton, this.cpRemoveButtonClass, this.cpRemoveButtonText);
 
       this.dialog = this.cmpRef.instance;
 
@@ -202,6 +207,10 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
 
   public colorCanceled(): void {
     this.colorPickerCancel.emit();
+  }
+
+  public colorRemoved(): void {
+      this.colorPickerRemove.emit();
   }
 
   public colorSelected(value: string): void {
