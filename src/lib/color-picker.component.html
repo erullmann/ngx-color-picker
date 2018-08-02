@@ -82,7 +82,7 @@
   </div>
 
   <div *ngIf="cpOKButton || cpCancelButton || cpRemoveButton" class="button-area">
-    <button *ngIf="cpCRemoveButton" type="button" class="{{cpRemoveButtonClass}}" (click)="onRemoveColor($event)">{{cpRemoveButtonText}}</button>
+    <button *ngIf="cpRemoveButton" type="button" class="{{cpRemoveButtonClass}}" (click)="onRemoveColor($event)">{{cpRemoveButtonText}}</button>
 
     <button *ngIf="cpCancelButton" type="button" class="{{cpCancelButtonClass}}" (click)="onCancelColor($event)">{{cpCancelButtonText}}</button>
 
