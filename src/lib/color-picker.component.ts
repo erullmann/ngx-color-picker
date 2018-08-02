@@ -84,6 +84,10 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   public cpCancelButtonText: string;
   public cpCancelButtonClass: string;
 
+  public cpRemoveButton: boolean;
+  public cpRemoveButtonText: string;
+  public cpRemoveButtonClass: string;
+
   public cpPresetLabel: string;
   public cpPresetColors: string[];
   public cpMaxPresetColorsLength: number;
@@ -185,7 +189,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     cpOKButton: boolean, cpOKButtonClass: string, cpOKButtonText: string,
     cpCancelButton: boolean, cpCancelButtonClass: string, cpCancelButtonText: string,
     cpAddColorButton: boolean, cpAddColorButtonClass: string, cpAddColorButtonText: string,
-    cpRemoveColorButtonClass: string): void
+    cpRemoveColorButtonClass: string, cpRemoveButton: boolean, cpRemoveButtonClass: string, cpRemoveButtonText: string,): void
   {
     this.setInitialColor(color);
 
@@ -218,6 +222,10 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cpCancelButton = cpCancelButton;
     this.cpCancelButtonText = cpCancelButtonText;
     this.cpCancelButtonClass = cpCancelButtonClass;
+
+    this.cpRemoveButton = cpRemoveButton;
+    this.cpRemoveButtonText = cpRemoveButtonText;
+    this.cpRemoveButtonClass = cpRemoveButtonClass;
 
     this.fallbackColor = cpFallbackColor || '#fff';
 

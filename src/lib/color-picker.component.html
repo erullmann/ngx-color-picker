@@ -81,7 +81,9 @@
     <div *ngIf="!cpPresetColors?.length && cpAddColorButton" class="{{cpPresetEmptyMessageClass}}">{{cpPresetEmptyMessage}}</div>
   </div>
 
-  <div *ngIf="cpOKButton || cpCancelButton" class="button-area">
+  <div *ngIf="cpOKButton || cpCancelButton || cpRemoveButton" class="button-area">
+    <button *ngIf="cpCRemoveButton" type="button" class="{{cpRemoveButtonClass}}" (click)="onRemoveColor($event)">{{cpRemoveButtonText}}</button>
+
     <button *ngIf="cpCancelButton" type="button" class="{{cpCancelButtonClass}}" (click)="onCancelColor($event)">{{cpCancelButtonText}}</button>
 
     <button *ngIf="cpOKButton" type="button" class="{{cpOKButtonClass}}" (click)="onAcceptColor($event)">{{cpOKButtonText}}</button>
